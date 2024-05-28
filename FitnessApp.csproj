@@ -1,0 +1,875 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3CDBF5E8-EB8E-4797-8978-31F5645933A4}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>FitnessApp</RootNamespace>
+    <AssemblyName>FitnessApp</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AccountManager">
+      <HintPath>..\IpLab13\AccountManager\bin\Debug\AccountManager.dll</HintPath>
+    </Reference>
+    <Reference Include="Azure.Core, Version=1.39.0.0, Culture=neutral, PublicKeyToken=92742159e12e44c8, processorArchitecture=MSIL">
+      <HintPath>packages\Azure.Core.1.39.0\lib\net472\Azure.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Azure.Identity, Version=1.11.3.0, Culture=neutral, PublicKeyToken=92742159e12e44c8, processorArchitecture=MSIL">
+      <HintPath>packages\Azure.Identity.1.11.3\lib\netstandard2.0\Azure.Identity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Bcl.AsyncInterfaces.8.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.SqlClient, Version=5.0.0.0, Culture=neutral, PublicKeyToken=23ec7fc2d6eaa4a5, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Data.SqlClient.5.2.0\lib\net462\Microsoft.Data.SqlClient.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Identity.Client, Version=4.61.1.0, Culture=neutral, PublicKeyToken=0a613f4dd989e8ae, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Identity.Client.4.61.1\lib\net462\Microsoft.Identity.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Identity.Client.Extensions.Msal, Version=4.61.1.0, Culture=neutral, PublicKeyToken=0a613f4dd989e8ae, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Identity.Client.Extensions.Msal.4.61.1\lib\netstandard2.0\Microsoft.Identity.Client.Extensions.Msal.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Abstractions, Version=7.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.IdentityModel.Abstractions.7.6.0\lib\net472\Microsoft.IdentityModel.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.JsonWebTokens, Version=7.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.IdentityModel.JsonWebTokens.7.6.0\lib\net472\Microsoft.IdentityModel.JsonWebTokens.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Logging, Version=7.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.IdentityModel.Logging.7.6.0\lib\net472\Microsoft.IdentityModel.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Protocols, Version=7.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.IdentityModel.Protocols.7.6.0\lib\net472\Microsoft.IdentityModel.Protocols.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Protocols.OpenIdConnect, Version=7.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.IdentityModel.Protocols.OpenIdConnect.7.6.0\lib\net472\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Tokens, Version=7.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.IdentityModel.Tokens.7.6.0\lib\net472\Microsoft.IdentityModel.Tokens.dll</HintPath>
+    </Reference>
+    <Reference Include="NutritionCalculator">
+      <HintPath>..\IpLab13\NutritionCalculator\bin\Debug\NutritionCalculator.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ClientModel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=92742159e12e44c8, processorArchitecture=MSIL">
+      <HintPath>packages\System.ClientModel.1.0.0\lib\netstandard2.0\System.ClientModel.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.ConfigurationManager, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Configuration.ConfigurationManager.8.0.0\lib\net462\System.Configuration.ConfigurationManager.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Data.SqlClient, Version=4.6.1.6, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Data.SqlClient.4.8.6\lib\net461\System.Data.SqlClient.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=8.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Diagnostics.DiagnosticSource.8.0.1\lib\net462\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.IdentityModel.Tokens.Jwt, Version=7.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\System.IdentityModel.Tokens.Jwt.7.6.0\lib\net472\System.IdentityModel.Tokens.Jwt.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.FileSystem.AccessControl, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.IO.FileSystem.AccessControl.5.0.0\lib\net461\System.IO.FileSystem.AccessControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory.Data, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Memory.Data.8.0.0\lib\net462\System.Memory.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.Security.AccessControl, Version=6.0.0.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.AccessControl.6.0.1\lib\net461\System.Security.AccessControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.ProtectedData, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Cryptography.ProtectedData.8.0.0\lib\net462\System.Security.Cryptography.ProtectedData.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Permissions, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Permissions.8.0.0\lib\net462\System.Security.Permissions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Principal.Windows, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Principal.Windows.5.0.0\lib\net461\System.Security.Principal.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Text.Encodings.Web, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Text.Encodings.Web.8.0.0\lib\net462\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=8.0.0.3, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Text.Json.8.0.3\lib\net462\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AccountsDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AccountsDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="CaloriesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CaloriesForm.Designer.cs">
+      <DependentUpon>CaloriesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExercisesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExercisesForm.Designer.cs">
+      <DependentUpon>ExercisesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoghinForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoghinForm.Designer.cs">
+      <DependentUpon>LoghinForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProfileForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProfileForm.Designer.cs">
+      <DependentUpon>ProfileForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WorkoutForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WorkoutForm.Designer.cs">
+      <DependentUpon>WorkoutForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="CaloriesForm.resx">
+      <DependentUpon>CaloriesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExercisesForm.resx">
+      <DependentUpon>ExercisesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProfileForm.resx">
+      <DependentUpon>ProfileForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="WorkoutForm.resx">
+      <DependentUpon>WorkoutForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="AccountsDataSet.xsc">
+      <DependentUpon>AccountsDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="AccountsDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>AccountsDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="AccountsDataSet.xss">
+      <DependentUpon>AccountsDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Incline_Bench_Sit_ups_2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Incline_Bench_Sit_ups_3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Incline_Bench_Sit_ups_1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Hanging_Leg_Raises_1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Hanging_Leg_Raises_2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Hanging_Leg_Raises_3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Crunches_1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Crunches_2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Crunches_3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Leg_Raises_1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Leg_Raises_2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Leg_Raises_3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Seated_Jackknife_1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Seated_Jackknife_2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Seated_Jackknife_3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Twisting_Hip_Raise_1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Twisting_Hip_Raise_2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Twisting_Hip_Raise_3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Core_Twist_1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Core_Twist_2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Core_Twist_3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Core_Twist_4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Side_Bridge_1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Side_Bridge_2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Side_Bridge_3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Superman_1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Superman_2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Superman_3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Rotating_T_Extension_1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Rotating_T_Extension_2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Rotating_T_Extension_3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Wrist_Curls_3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Wrist_Curls_2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Wrist_Curls_1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dumbell_Wrist_Curls_3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dumbell_Wrist_Curls_2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dumbell_Wrist_Curls_1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dumbell_Wrist_Twist_1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dumbell_Wrist_Twist_2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dumbell_Wrist_Twist_3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Stanting_Wrist_Curl_1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Stanting_Wrist_Curl_2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Stanting_Wrist_Curl_3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Curls_1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Curls_2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Curls_3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Barbell_Curls_3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Barbell_Curls_2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Barbell_Curls_1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PreArcher_Curls_3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PreArcher_Curls_1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PreArcher_Curls_2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Reverse_Curls_1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Reverse_Curls_2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Reverse_Curls_3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cable_Biceps_Curls_3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cable_Biceps_Curls_2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cable_Biceps_Curls_1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Low_Pulley_Cable_Crossover_2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Low_Pulley_Cable_Crossover_3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Low_Pulley_Cable_Crossover_1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Concentration_Curls_3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Concentration_Curls_2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Concentration_Curls_1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Squats_3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Squats_2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Squats_1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Angled_Leg_Presses_3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Angled_Leg_Presses_2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Angled_Leg_Presses_1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Leg_Extensions_1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Leg_Extensions_2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Leg_Extensions_3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Hack_Squats_3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Hack_Squats_1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Hack_Squats_2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cable_Back_Kicks_3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cable_Back_Kicks_1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cable_Back_Kicks_2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Front_Squats_3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Front_Squats_2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Front_Squats_1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Good_Morning_3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Good_Morning_2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Good_Morning_1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Seated_Leg_Curls_3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Seated_Leg_Curls_1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Seated_Leg_Curls_2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Single_Leg_Squat_2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Single_Leg_Squat_3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Single_Leg_Squat_1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Toe_Raises_1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Toe_Raises_2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Toe_Raises_3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Seated_Calf_Raises_1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Seated_Calf_Raises_2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Standing_Barbell_Calf_Raise_2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Standing_Barbell_Calf_Raise_1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dumbbell_Calf_Jump_2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dumbbell_Calf_Jump_1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bench_Presses_3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bench_Presses_2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bench_Presses_1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Incline_Presses_2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Incline_Presses_3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Incline_Presses_1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Parallel_Bar_Dips_3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Parallel_Bar_Dips_1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Parallel_Bar_Dips_2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Push_Ups_2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Push_Ups_3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Push_Ups_1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pec_Desk_Flies_3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pec_Desk_Flies_2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pec_Desk_Flies_1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dumbbell_Decline_Bench_Presses_3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dumbbell_Decline_Bench_Presses_2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dumbbell_Decline_Bench_Presses_1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cable_Crossover_Flys_3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cable_Crossover_Flys_1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cable_Crossover_Flys_2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dumbbell_Flys_3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dumbbell_Flys_1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dumbbell_Flys_2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Deadlifts_1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Deadlifts_2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Deadlifts_3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lat_Pull_Downs_1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lat_Pull_Downs_2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lat_Pull_Downs_3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\One_Arm_Dumbbell_Row_1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\One_Arm_Dumbbell_Row_2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\One_Arm_Dumbbell_Row_3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Seated_Rows_1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Seated_Rows_2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Seated_Rows_3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Chin_Ups_3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Chin_Ups_2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Chin_Ups_1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dumbbell_Pullovers_3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dumbbell_Pullovers_1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dumbbell_Pullovers_2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TBar_Bent_Over_Row_3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TBar_Bent_Over_Row_1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TBar_Bent_Over_Row_2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Reverse_Chin_Ups_3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Reverse_Chin_Ups_2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Reverse_Chin_Ups_1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Barbell_Shrugs_2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Barbell_Shrugs_3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Back_Extensions_3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Barbell_Shrugs_1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Back_Extensions_2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Back_Extensions_1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Triceps_Kickbacks_3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Triceps_Kickbacks_1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Triceps_Kickbacks_2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Triceps_Extensions_3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Triceps_Extensions_1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Triceps_Extensions_2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Triceps_Dips_3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Triceps_Dips_2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Triceps_Dips_1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Seated_Triceps_Extensions_3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Seated_Triceps_Extensions_2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Seated_Triceps_Extensions_1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Push_Downs_2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Push_Downs_3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Push_Downs_1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Close_Grip_Bench_Presse_3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Close_Grip_Bench_Presse_2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Close_Grip_Bench_Presse_1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Seated_Dumbbell_Presses_2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Seated_Dumbbell_Presses_3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pec_Deck_Rear_Delt_Laterals_3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Seated_Dumbbell_Presses_1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pec_Deck_Rear_Delt_Laterals_2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pec_Deck_Rear_Delt_Laterals_1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Low_Pulley_Lateral_Raises_3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Low_Pulley_Lateral_Raises_2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Front_Weighted_Raises_3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Low_Pulley_Lateral_Raises_1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Front_Weighted_Raises_2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Front_Weighted_Raises_1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Front_Raises_3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Front_Raises_2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Back_Presses_3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Front_Raises_1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Back_Presses_2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Back_Presses_1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Arnold_Press_3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Arnold_Press_4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Arnold_Press_2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Arnold_Press_1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="packages\Microsoft.Data.SqlClient.SNI.5.2.0\build\net462\Microsoft.Data.SqlClient.SNI.targets" Condition="Exists('packages\Microsoft.Data.SqlClient.SNI.5.2.0\build\net462\Microsoft.Data.SqlClient.SNI.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\Microsoft.Data.SqlClient.SNI.5.2.0\build\net462\Microsoft.Data.SqlClient.SNI.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.Data.SqlClient.SNI.5.2.0\build\net462\Microsoft.Data.SqlClient.SNI.targets'))" />
+  </Target>
+</Project>
